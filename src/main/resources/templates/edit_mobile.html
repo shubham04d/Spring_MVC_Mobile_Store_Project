@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head th:include="main.html :: header_fragment">
+    <meta charset="ISO-8859-1">
+    <title>MVC CRUD - Edit Mobile</title>
+</head>
+<body>
+<div th:include="main.html :: navbar_fragment"></div>
+
+<div class="container text-center">
+    <h1>Edit Mobile</h1>
+</div>
+
+<!-- Form code -->
+<div class="container">
+    <form class="col-6" th:object="${mobile_object}" method="post" th:action="@{/edit-mobile}">
+        <input type="hidden" th:field="*{id}" />
+        <div class="mb-3">
+            <label for="mobile_name" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="mobile_name" th:field="*{name}" th:placeholder="${mobile_object.name}" />
+        </div>
+        <div class="mb-3">
+            <label for="mobile_price" class="form-label">Price:</label>
+            <input type="text" class="form-control" id="mobile_price" th:field="*{price}" th:placeholder="${mobile_object.price}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+<script th:replace="main.html :: js_fragment"></script>
+
+</body>
+</html>
